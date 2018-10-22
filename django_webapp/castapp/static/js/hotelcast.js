@@ -1,5 +1,5 @@
 $(function(){
-	$(document).on('click', "#actionLink",function(){
+	$(document).on('click touchstart', "#actionLink",function(){
 			var link = $(this).attr('data');
 			$.ajax({
 				url: "execute/?command=" + link,
