@@ -16,7 +16,7 @@ function getUrlVars()
 $(function(){
 	var show_id = getUrlVars()["id"];
 	var api_key = "b8164d1dad070aa1840c4670c661ed63c0ee0bc1"	
-	$.getJSON("http://api-public.guidebox.com/v2/shows/" + show_id + "/episodes?api_key=" + api_key, function(json1){
+	$.getJSON("https://api-public.guidebox.com/v2/shows/" + show_id + "/episodes?api_key=" + api_key, function(json1){
 			num_season = json1.results[0].season_number;
 			for (i = 2; i <= num_season; i = i + 1) {
 				s_num = i;
@@ -27,7 +27,7 @@ $(function(){
 	$("#season_dropdown").change(function(){
 			var season = this.value;
 			$("#season_row").empty()
-			$.getJSON("http://api-public.guidebox.com/v2/shows/" + show_id + "/episodes?api_key=" + api_key + "&include_links=true&season=" + season , function(json){
+			$.getJSON("https://api-public.guidebox.com/v2/shows/" + show_id + "/episodes?api_key=" + api_key + "&include_links=true&season=" + season , function(json){
 					$.each(json.results, function(d, item){
 						title = item.original_title;
 						img = item.thumbnail_400x225;

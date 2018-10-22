@@ -1,12 +1,13 @@
 $(function(){
+	var successAlert = '<div class="alert alert-success" role="alert"><strong>Sucess!</strong>The command has succesfully been sent to the server.</div>'
+	var failedAlert = '<div class="alert alert-danger" role="alert"><strong>Ope!</strong>Something went wrong!  Please try again later!</div>'
 	$(document).on('click', "#actionLink",function(){
 			var link = $(this).attr('data');
 			$.ajax({
 				url: "execute/?command=" + link,
 				type: 'GET',
 				success: function(res) {
-					alert(res.success_message);
-					console.log(res.success_message);
+					$("#executeAlert").append(successAlert);
 				}
 		});
 		});
@@ -16,8 +17,7 @@ $(function(){
 				url: "/execute/?command=" + data,
 				type: 'GET',
 				success: function(res) {
-					alert(res.success_message);
-					console.log(res.success_message);
+					$("#executeAlert").append(successAlert);
 				}
 		});
 		});
@@ -27,8 +27,7 @@ $(function(){
 				url: "/execute/?command=" + data,
 				type: 'GET',
 				success: function(res) {
-					alert(res.success_message);
-					console.log(res.success_message);
+					$("#executeAlert").append(successAlert);
 				}
 		});
 		});
