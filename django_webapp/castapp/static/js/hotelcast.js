@@ -7,7 +7,9 @@ $(function(){
 				url: "execute/?command=" + link,
 				type: 'GET',
 				success: function(res) {
+					var successAlert = '<div class="alert alert-success" role="alert"><strong>Sucess!</strong>The command has succesfully been sent to the server.</div>'
 					$("#executeAlert").append(successAlert);
+					
 				}
 		});
 		});
@@ -17,6 +19,7 @@ $(function(){
 				url: "/execute/?command=" + data,
 				type: 'GET',
 				success: function(res) {
+					var successAlert = '<div class="alert alert-success" role="alert"><strong>Sucess!</strong>The command has succesfully been sent to the server.</div>'
 					$("#executeAlert").append(successAlert);
 				}
 		});
@@ -27,6 +30,7 @@ $(function(){
 				url: "/execute/?command=" + data,
 				type: 'GET',
 				success: function(res) {
+					var successAlert = '<div class="alert alert-success" role="alert"><strong>Sucess!</strong>The command has succesfully been sent to the server.</div>'
 					$("#executeAlert").append(successAlert);
 				}
 		});
