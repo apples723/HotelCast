@@ -18,12 +18,12 @@ It consists of three parts:
 #### CLOUD SERVER: 
 - Serves frontend
 - Servers and hosts the command file of what to "cast" (play) on local computer
+- Django webapp
 
 #### Local Server: 
 
 - Local server pulls from the cloud server the commands to run via a python script. 
 - The script is constantly querying the cloud server for changes to the command file.
-
 ### EXAMPLE:
 
 #### Client:
@@ -34,3 +34,14 @@ It consists of three parts:
 #### Local server:
 - Using python I query the cloud server for the command.txt(command.txt)
 - I then use python to play the url (doesn't matter if its netflix, hulu, youtube, ect) in chrome (Selenium ChromeDriver) in full screen
+## Requirements
+- Python 2.7 
+- Django 1.11.16
+- [Guidebox](http://guidebox.com)
+- Python Requests 
+- Selnium
+
+## About
+Idea and code was writen by: 
+[Grant Siders](http://grantsiders.com). Feel free to contriube by forking the repo and opening a pull request! 
+
