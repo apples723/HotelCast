@@ -118,5 +118,5 @@ USE_TZ = True
 STATICFILES_DIRS = [
 	os.path.join(BASE_DIR,'castapp','static'),
 ]
-STATIC_ROOT '/var/www/hotelcast/static'
+STATIC_ROOT = '/var/www/hotelcast/static/'
 STATIC_URL = '/static/'
