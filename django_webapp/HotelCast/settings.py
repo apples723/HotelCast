@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -116,8 +117,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATICFILES_DIRS = [
-	'/home/django_projects/HotelCast/castapp/static',
-]
-STATIC_ROOT = '/var/www/grantsiders.com/public_html/hotelcast/static'
-STATIC_URL = '/hotelcast/static/'
+if os.name == "nt":
+	STATICFILES_DIRS = [
+		os.path.join(BASE_DIR,'castapp','static'),
+	]
+	STATIC_URL = '/static/'
+
+else: 
+	STATICFILES_DIRS = [
+		'/home/django_projects/HotelCast/castapp/static',
+	]
+	STATIC_URL = '/hotelcast/static/'

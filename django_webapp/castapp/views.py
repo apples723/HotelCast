@@ -12,7 +12,7 @@ import guidebox
 #setup guidebox
 #So my api key is not on github...
 if os.name == "nt":
-	KeyDoc = open("../guidebox_api_key.txt", 'r')
+	KeyDoc = open("../../guidebox_api_key.txt", 'r')
 else:
 	KeyDoc = open("/home/guidebox_api_key.txt", 'r') 
 api_key = KeyDoc.read()
@@ -179,3 +179,15 @@ def get_command(request):
 	return HttpResponse(content, content_type='text/plain')
 def remote(request):
 	return render(request, 'remote.html')
+	
+#error views
+def not_found(request):
+    return render(request, 'errors/error_404.html')
+def server_error(request):
+    return render(request, 'errors/error_500.html')
+ 
+def permission_denied(request):
+    return render(request, 'errors/error_403.html')
+ 
+def bad_request(request):
+    return render(request, 'errors/error_400.html')

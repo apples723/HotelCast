@@ -13,10 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import url, include, handler404
 from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^', include('castapp.urls')),
 ]
+handler404 = 'castapp.views.not_found'
+handler500 = 'castapp.views.server_error'
+handler403 = 'castapp.views.permission_denied'
+handler400 = 'castapp.views.bad_request'
