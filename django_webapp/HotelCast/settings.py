@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import mimetypes
-mimetypes.add_type("text/css", ".css", True)
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*69h0c3o(*iq1b1k_mzu+q0fz8b%y^1+*+%bfdm^1vtnf2+*=+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', 'grantsiders.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -117,14 +115,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-if os.name == "nt":
-	STATICFILES_DIRS = [
-		os.path.join(BASE_DIR,'castapp','static'),
-	]
-	STATIC_URL = '/static/'
-
-else: 
-	STATICFILES_DIRS = [
-		'/home/django_projects/HotelCast/castapp/static',
-	]
-	STATIC_URL = '/hotelcast/static/'
+STATICFILES_DIRS = [
+	os.path.join(BASE_DIR,'castapp','static'),
+]
+STATIC_URL = '/static/'
