@@ -13,7 +13,7 @@ $(function(){
 	$(document).on('click  touchstart', "#actionPlay",function(){
 			var data = "play"
 			$.ajax({
-				url: "/hotelcast/execute/?command=" + data,
+				url: "/execute/?command=" + data,
 				type: 'GET',
 				success: function(res) {
 					alert(res.success_message);
@@ -24,7 +24,7 @@ $(function(){
 	$(document).on('click  touchstart', "#actionPause",function(){
 			var data = "pause"
 			$.ajax({
-				url: "/hotelcast/execute/?command=" + data,
+				url: "/execute/?command=" + data,
 				type: 'GET',
 				success: function(res) {
 					alert(res.success_message);
