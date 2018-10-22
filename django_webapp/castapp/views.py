@@ -170,7 +170,7 @@ def write_command(request):
 	command_file.write(command)
 	command_file.close()
 	data = {
-        'success_message': "command writen to the command file succesfully"
+        'success_message': "true"
 	}
 	return JsonResponse(data)
 def get_command(request):

@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*69h0c3o(*iq1b1k_mzu+q0fz8b%y^1+*+%bfdm^1vtnf2+*=+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -115,8 +115,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATICFILES_DIRS = [
-	os.path.join(BASE_DIR,'castapp','static'),
-]
-STATIC_ROOT = '/var/www/hotelcast/static/'
-STATIC_URL = '/static/'
+if os.name == 'nt':
+	STATIC_ROOT = os.path.join(BASE_DIR,'castapp','static') 
+	STATIC_URL = '/static/'
+else:
+	STATICFILES_DIRS = [
+		os.path.join(BASE_DIR,'castapp','static'),
+	]
+	STATIC_ROOT = '/var/www/hotelcast/static/'
+	STATIC_URL = '/static/'
+

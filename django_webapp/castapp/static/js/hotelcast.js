@@ -1,15 +1,35 @@
 $(function(){
-	var successAlert = '<div class="alert alert-success" role="alert"><strong>Sucess!</strong>The command has succesfully been sent to the server.</div>'
-	var failedAlert = '<div class="alert alert-danger" role="alert"><strong>Ope!</strong>Something went wrong!  Please try again later!</div>'
 	$(document).on('click', "#actionLink",function(){
 			var link = $(this).attr('data');
 			$.ajax({
 				url: "execute/?command=" + link,
 				type: 'GET',
 				success: function(res) {
-					var successAlert = '<div class="alert alert-success" role="alert"><strong>Sucess!</strong>The command has succesfully been sent to the server.</div>'
-					$("#executeAlert").append(successAlert);
+					$.notify({
+						icon: 'glyphicon glyphicons-check',
+						title: 'Sucess!',
+						message: 'The command has ben sent to the sever!',
+						target: '_blank'
+					},{	
+						type: "success",
+						placement: {
+							align: "center"
+						}
+					});
 					
+				},
+				error: function(res) {
+					$.notify({
+						icon: 'glyphicon glyphicons-warning-sign',
+						title: 'Ope!',
+						message: 'There was an error of some sort please try again!',
+						target: '_blank'
+					},{	
+						type: "danger",
+						placement: {
+							align: "center"
+						}
+					});
 				}
 		});
 		});
@@ -19,8 +39,18 @@ $(function(){
 				url: "/execute/?command=" + data,
 				type: 'GET',
 				success: function(res) {
-					var successAlert = '<div class="alert alert-success" role="alert"><strong>Sucess!</strong>The command has succesfully been sent to the server.</div>'
-					$("#executeAlert").append(successAlert);
+					$.notify({
+						// options
+						icon: 'glyphicon glyphicons-check',
+						title: 'Sucess!',
+						message: 'The command has ben sent to the sever!',
+						target: '_blank'
+					},{	
+						type: "success",
+						placement: {
+							align: "center"
+						}
+					});
 				}
 		});
 		});
@@ -30,9 +60,20 @@ $(function(){
 				url: "/execute/?command=" + data,
 				type: 'GET',
 				success: function(res) {
-					var successAlert = '<div class="alert alert-success" role="alert"><strong>Sucess!</strong>The command has succesfully been sent to the server.</div>'
-					$("#executeAlert").append(successAlert);
+					$.notify({
+						// options
+						icon: 'glyphicon glyphicons-check',
+						title: 'Sucess!',
+						message: 'The command has ben sent to the sever!',
+						target: '_blank'
+					},{	
+						type: "success",
+						placement: {
+							align: "center"
+						}
+					});
 				}
+				
 		});
 		});
 });
