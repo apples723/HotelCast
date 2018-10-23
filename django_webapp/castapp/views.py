@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.http import JsonResponse
 from django.http import HttpResponse
+from django.core.urlresolvers import resolve
 import os
 #guidebox library
 import guidebox
@@ -70,9 +71,22 @@ class SeasonObject:
 #views 	
 #demo mode toggle
 demo_mode = False
+def find_mode(request):
+	if("demo" not in request):
+		demo_mode = True 
+	else:
+		demo_mode = False
+
+
+def rewrite(request):
+	path = request.META['PATH_INFO']
+	query_string = request.META['QUERY_STRING']
+	url_host = request.META['HTTP_HOST']
+	url_string = url_host + "/demo" + path + "?" + query_string
 
 def index(request):
-	print demo_mode
+	find_mode(request)
+	
 	if(demo_mode == True):
 		return render(request, 'demo_index.html', {"title": "Hotel Cast", "demo_mode":demo_mode} )
 	else:
