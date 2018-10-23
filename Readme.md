@@ -1,6 +1,6 @@
 # Hotel Cast
 A Chromecast alternative that works on hotel WiFi.  
-
+[Live Demo](https://gsiders.app/demo)
 ## Why?? 
 Since I travel for work I never can use my chromecast since most hotel networks isolate clients or require a sign in page. Both of these cause the chromecast not to work. So I took it into my own hands to write and application to fix this. Yes I could have just bought a travel router or a Roku, but I like a good challenge!
 
