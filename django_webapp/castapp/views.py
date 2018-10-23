@@ -71,18 +71,6 @@ class SeasonObject:
 #views 	
 #demo mode toggle
 demo_mode = False
-def find_mode(request):
-	if("demo" not in request):
-		return True
-	else:
-		return False
-
-
-def rewrite(request):
-	path = request.META['PATH_INFO']
-	query_string = request.META['QUERY_STRING']
-	url_host = request.META['HTTP_HOST']
-	url_string = url_host + "/demo" + path + "?" + query_string
 
 def index(request):
 	mode = find_mode(request)
