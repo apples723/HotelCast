@@ -24,7 +24,7 @@ SECRET_KEY = '*69h0c3o(*iq1b1k_mzu+q0fz8b%y^1+*+%bfdm^1vtnf2+*=+'
 # SECURITY WARNING: don't run with debug turned on in production!
 #if OS is windows turn debug mode on
 if os.name == 'nt':
-	DEBUG == True
+	DEBUG = True
 else: 
 	DEBUG = False
 
@@ -119,6 +119,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+#again for my dev enviorment vs prod 
 if os.name == 'nt':
 	STATIC_ROOT = os.path.join(BASE_DIR,'castapp','static') 
 	STATIC_URL = '/static/'

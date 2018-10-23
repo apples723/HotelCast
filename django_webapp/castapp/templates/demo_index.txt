@@ -4,15 +4,13 @@
 </br>
 	<div class="row">
 		<div class="col-sm-12 col-lg-6">
-			<div class="info">
-				<div class="jumbotron p-4">
-				  <h1 class="display-4">Welcome to HotelCast!</h1>
-				  <p class="lead">You can search for movies or TV shows to cast on this page.</p>
-				  <hr class="my-4">
-				  <p>Currently we support Netflix and Hulu.
-				  To learn more about the application you can click below.</p>
-				  <a class="btn btn-primary btn-lg" href="http://github.com/apples723/hotelcast" role="button">Learn More</a>
-				</div>
+			<div class="jumbotron">
+			  <h1 class="display-4">You are in demo mode!</h1>
+			  <p class="lead">The purpose of this mode is to demonstrate what happends on the backend of this Django application.</p>
+			  <hr class="my-4">
+			  <p>Anytime you click an action, you will be alerted as to what would be passed to the command file.
+			  You can learn more by clinking below.</p>
+			  <a class="btn btn-primary btn-lg" href="http://github.com/apples723/hotelcast" role="button">Learn More</a>
 			</div>
 		</div> 
 		<div class="col-sm-12 col-lg-6">

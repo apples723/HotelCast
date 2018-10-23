@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" />
 	<!-- add my stylesheet -->
 	<link rel="stylesheet" href="{% static 'style.css' %}">
+	<!-- FontAwesome Icones --> 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 	<!-- jQuery -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!-- Bootstrap JavaScript -->
@@ -19,10 +21,20 @@
 	<script src="{% static  'js/guidebox_load.js' %}"></script>
 	<!-- bootstrap notify.js -->
 	<script src="{% static  'js/vendor/notify.js' %}"></script>
+	<!-- jquery demo script for demonstrating the backend -->
+	<script src="{% static  'js/demo_site.js' %}"></script>
   <title>{% block title %}{% endblock %} </title>
 </head>
  
 <body>
+	<!-- Demo Mode Alert -->
+	{% if demo_mode == True %} 
+	<nav class="navbar navbar-expand-lg navbar-dark bg-warning static-top">
+      <div class="container">
+        <a class="navbar-brand navbar-center font-weight-bold text-dark" href="#">YOU ARE IN DEMO MODE</a>
+	  </div>
+	</nav>
+	{% endif %}
 	<!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="container">
@@ -40,6 +52,9 @@
 			  <li class="nav-item">
 				<span id="actionPause" class="nav-link">Pause</span>
 			</li>
+			<li class="nav-item">
+				<a href="/remote" class="nav-link">Remote</a>
+			</li>
           </ul>
         </div>
       </div>
@@ -54,7 +69,7 @@
 	<!-- Footer -->
     <footer class="bg-dark footer">
       <div class="container">
-        <p class="m-0 text-center text-white">&copy; 2018<a href="GrantSiders.com"> Grant Siders</a></p>
+		<p class="m-0 text-center text-light">Made with <i class="fas fa-heart text-danger"></i> by <a class="text-light" href="https://grantsiders.com">Grant Siders</a></p>
       </div>
       <!-- /.container -->
     </footer>

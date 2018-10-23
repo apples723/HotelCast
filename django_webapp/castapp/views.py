@@ -10,6 +10,7 @@ import os
 #guidebox library
 import guidebox
 #setup guidebox
+
 #So my api key is not on github...
 if os.name == "nt":
 	KeyDoc = open("../../guidebox_api_key.txt", 'r')
@@ -19,13 +20,7 @@ api_key = KeyDoc.read()
 api_key = api_key.strip('\n')
 guidebox.api_key = api_key
 
-#render index
-def index(request):
-	return render(request, 'index.html')
-
-#Guidebox Stuff
-
-#results class
+#Classes
 class SearchResults:
 	def __init__(self,id):
 		self.id = id
@@ -72,7 +67,17 @@ class SeasonObject:
 		self.url = url
 		self.season_number = ses_num
 		
-		
+#views 	
+#demo mode toggle
+demo_mode = False
+
+def index(request):
+	print demo_mode
+	if(demo_mode == True):
+		return render(request, 'demo_index.html', {"title": "Hotel Cast", "demo_mode":demo_mode} )
+	else:
+		return render(request, 'index.html', {"title": "HotelCast", "demo_mode":demo_mode} )
+
 def search_show(request):
 	query =  request.GET.get('query')
 	results = guidebox.Search.shows(feild='title',query=query)
@@ -87,7 +92,7 @@ def search_show(request):
 		result_dict[id] = SearchResults(id)
 		result_dict[id].add_data(id,title,img,bio)
 	search_type = "show"
-	return render(request, 'search.html', {'search_type':search_type, 'results':result_dict}) 
+	return render(request, 'search.html', {'search_type':search_type, 'results':result_dict, "demo_mode":demo_mode}) 
 
 def search_movie(request):
 	query =  request.GET.get('query')
@@ -103,7 +108,7 @@ def search_movie(request):
 		result_dict[id] = SearchResults(id)
 		result_dict[id].add_data(id,title,img,bio)
 	search_type = "movie"
-	return render(request, 'search.html', {'search_type':search_type, 'results':result_dict}) 	
+	return render(request, 'search.html', {'search_type':search_type, 'results':result_dict, "demo_mode":demo_mode}) 	
 def movie_info(request):
 	movie_id = request.GET.get('id')
 	movie_info = guidebox.Movie.retrieve(id=movie_id,include_links=True)
@@ -127,7 +132,7 @@ def movie_info(request):
 			hulu = obj.link
 	movie_dict[movie_id] = MovieObject(movie_id)
 	movie_dict[movie_id].add_data(movie_id,movie_title,img_lrg,movie_bio,netflix,hulu,amazon)
-	return render(request,'movie.html', {'title': movie_title, 'movie_info':movie_dict})	
+	return render(request,'movie.html', {'title': movie_title, 'movie_info':movie_dict, "demo_mode":demo_mode})	
 	
 	
 
@@ -162,7 +167,7 @@ def show_info(request):
 				url = obj['link']
 		result_dict[id] = SeasonObject(id)
 		result_dict[id].add_data(id,ses_num,title,img,bio,url)
-	return render(request,'show.html', {'title': show_title, 'show_info':show_dict, 'episodes': result_dict, 'netflix_status': netflix_status})
+	return render(request,'show.html', {'title': show_title, 'show_info':show_dict, 'episodes': result_dict, 'netflix_status': netflix_status, "demo_mode":demo_mode})
 def write_command(request):
 	command = request.GET.get('command');
 	import os
@@ -178,7 +183,7 @@ def get_command(request):
 	content = content.read()
 	return HttpResponse(content, content_type='text/plain')
 def remote(request):
-	return render(request, 'remote.html')
+	return render(request, 'remote.html',)
 	
 #error views
 def not_found(request):
