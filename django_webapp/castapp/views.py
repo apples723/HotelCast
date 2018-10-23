@@ -73,9 +73,8 @@ class SeasonObject:
 demo_mode = False
 
 def index(request):
-	mode = find_mode(request)
 	
-	if(mode == True):
+	if(demo_mode == True):
 		return render(request, 'demo_index.html', {"title": "Hotel Cast", "demo_mode":demo_mode} )
 	else:
 		return render(request, 'index.html', {"title": "HotelCast", "demo_mode":demo_mode} )
