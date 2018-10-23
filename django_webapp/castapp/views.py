@@ -73,9 +73,9 @@ class SeasonObject:
 demo_mode = False
 def find_mode(request):
 	if("demo" not in request):
-		demo_mode = True 
+		return True
 	else:
-		demo_mode = False
+		return False
 
 
 def rewrite(request):
@@ -85,9 +85,9 @@ def rewrite(request):
 	url_string = url_host + "/demo" + path + "?" + query_string
 
 def index(request):
-	find_mode(request)
+	mode = find_mode(request)
 	
-	if(demo_mode == True):
+	if(mode == True):
 		return render(request, 'demo_index.html', {"title": "Hotel Cast", "demo_mode":demo_mode} )
 	else:
 		return render(request, 'index.html', {"title": "HotelCast", "demo_mode":demo_mode} )
