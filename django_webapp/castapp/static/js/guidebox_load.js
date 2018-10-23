@@ -46,8 +46,15 @@ $(function(){
 							});
 					  }
 					  else{
-						url = item.link;
-						$("#season_row").append('<div class="col-md-3 col-sm-6 mb-4"><span id="actionLink" data="' + url + '"><img class="img-fluid" src="' + img +'" alt=""><p>' + title + '</p></div>');
+						$.each(urls, function(i, item){
+							source = item.source;
+							console.log(source);
+							var hulu_plus = "hulu_plus";
+							if(source == hulu_plus){
+								url = item.link;
+								$("#season_row").append('<div class="col-md-3 col-sm-6 mb-4"><span id="actionLink" data="' + url + '"><img class="img-fluid" src="' + img +'" alt=""><p>' + title + '</p></div>');
+							}
+						});
 					  }
 						
 			
