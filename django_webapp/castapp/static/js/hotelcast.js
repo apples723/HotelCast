@@ -18,7 +18,6 @@ $(function(){
 						align: "center"
 					}
 				});
-				demo_file();
 			},
 			error: function(res) {
 				$.notify({
