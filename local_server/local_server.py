@@ -5,6 +5,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+#get selenium driver
 def get_driver():
 	Popen('taskkill /im chromedriver.exe /f')
 	Popen('taskkill /im chrome.exe /f')
@@ -15,14 +16,14 @@ def get_driver():
 	driver = webdriver.Chrome("c:\dev\chromedriver.exe",chrome_options=options)
 	return driver
 def first_run(driver): 
-	r = req.get("http://grantsiders.com/hotelcast/command/")
+	r = req.get("https://hotelcast.gsiders.app/command/")
 	url = r.text
 	local_url = open("command.txt", "w")
 	local_url.write(url)
 	local_url.close()
-	driver.get(url)
+
 def second_run(driver):
-	r = req.get("http://grantsiders.com/hotelcast/command/")
+	r = req.get("https://hotelcast.gsiders.app/command/")
 	url = r.text
 	command_file = open("command.txt", "r")
 	local_command = command_file.read()
@@ -47,6 +48,7 @@ def second_run(driver):
 		new_url.close()
 		return second_run(driver)
 	if(url != local_command):
+		print url
 		print "doesn't match local url...opening url"
 		driver.get(url)
 		driver.fullscreen_window()
